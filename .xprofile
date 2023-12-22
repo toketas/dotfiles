@@ -1,0 +1,26 @@
+#!/bin/bash
+
+SLEEP_SECS=300
+WALLPAPER_PATH=~/pics/wallpaper.jpg
+SLSTATUS_PATH=~/devel/suckless/slstatus
+
+# Set delay rate
+xset r rate 200 30
+
+# Set dwm background
+feh --bg-scale $WALLPAPER_PATH
+
+# Sleep display after x secs
+xset dpms $SLEEP_SECS &
+
+# Run slstatus
+slstatus &
+
+# Check battery status
+while true; do
+  $SLSTATUS_PATH/batt_warn
+  sleep 45s
+done &
+
+# Setup notification Daemon
+dunst &
