@@ -26,6 +26,7 @@ return {
       mapping = cmp.mapping.preset.insert({
         ["<C-Space>"] = cmp.mapping.complete(),
         ["<Tab>"] = cmp.mapping.confirm({ select = true }),
+        ["<Enter>"] = cmp.mapping.confirm({ select = true }),
       }),
       sources = cmp.config.sources({
         { name = "luasnip" },
